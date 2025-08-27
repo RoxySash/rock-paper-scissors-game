@@ -1,0 +1,114 @@
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+
+/* 5. Improve media defaults */
+img, picture, video, canvas, svg {
+ 
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: var(--fonts);
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* -------------------- */
+/* Utility Class	*/
+
+/* -------------------- */
+
+.flex {
+	display: flex;
+	gap: var(--gap, 1rem);
+}
+
+
+/* screen readers visually hide content for sighted users */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+
+
+body {
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  padding-inline: 5em;
+	
+	
+  
+  /* 3. Add accessible line-height */
+  line-height: 1.7;
+  /* 4. Improve centering within parent */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   background: linear-gradient(to bottom, #33ccff 0%, #ff6699 100%);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   background: linear-gradient(to bottom, #ffccff 0%, #ff6699 100%);
+  width: 40em;
+  height: 25em;
+  border-radius: 2em;
+  color: var(--font-color);
+}
+
+:root {
+  --bg:  #00ff80;
+  --fonts: 1.8rem;
+  --font-color: #d64161;
+ 
+}
+
+.attribution {
+  color: antiquewhite;
+}
