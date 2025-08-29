@@ -1,5 +1,10 @@
 
+const roundResultsMsg = document.getElementById("roundResultsMsg");
+const computerScoreSpan = document.getElementById("computerScoreSpan");
+const playerScoreSpan = document.getElementById("playerScoreSpan");
+
 const choices = ["Rock", "Paper", "Scissors"];
+
 // calculates the random options for the computer 
 function getRandomComputerResult(arr) {
     const randomIndex = Math.floor(Math.random() * choices.length);
@@ -21,8 +26,8 @@ let computerScore = 0;
 function getRoundResults(userChoice) {
     const computerResults = getRandomComputerResult(); 
  
-    if(hasPlayerWonTheRound(userChoice, computerResults))
-    {
+    if (hasPlayerWonTheRound(userChoice, computerResults)){
+    
         playerScore++; 
         return `Player Wins ${userChoice} beats ${computerResults}`
     } else if(computerResults === userChoice) {
@@ -39,14 +44,15 @@ function getRoundResults(userChoice) {
 function showResults(userChoice) {
     
 
-    roundResultsMsg.textContent = getRoundResults(userChoice);
+    const roundResults = getRoundResults(userChoice);
+    roundResultsMsg.textContent = roundResults;
     playerScoreSpan.textContent = playerScore;
     computerScoreSpan.textContent = computerScore;
 
     if(playerScore === 3 || computerScore === 3) {
-    winnerMsgElement.innerText = `${playerScore === 3 ? "Player" : "Computer"} has won the game!`;
+    roundResultsMsg.innerText = `${playerScore === 3 ? "Player" : "Computer"} has won the game!`;
 
-         setTimeout(resetGame, 1500);
+       setTimeout(resetGame, 1500);
     
 };
 }
@@ -55,6 +61,7 @@ function showResults(userChoice) {
 const rockBtn = document.getElementById("rock-btn");
 const paperBtn = document.getElementById("paper-btn");
 const scissorsBtn = document.getElementById("scissors-btn");
+
 
 rockBtn.addEventListener("click", function(){
     showResults("Rock")
@@ -67,7 +74,7 @@ scissorsBtn.addEventListener("click", function(){
     showResults("Scissors")
 });
 
-const winnerMsgElement = document.getElementById("winner-msg");
+
 
 
 
@@ -75,12 +82,10 @@ const winnerMsgElement = document.getElementById("winner-msg");
 function resetGame() {
     playerScore = 0;
     computerScore = 0;
-    roundResultsMsg.textContent += " | Game Over! Starting a new game...";
-
+    roundResultsMsg.textContent = "Game Over! Starting a new game...";
     computerScoreSpan.innerText = computerScore;
     playerScoreSpan.innerText = playerScore;
 
-    
 
 }
 
