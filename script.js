@@ -1,20 +1,23 @@
 
 const choices = ["Rock", "Paper", "Scissors"];
-
+// calculates the random options for the computer 
 function getRandomComputerResult(arr) {
     const randomIndex = Math.floor(Math.random() * choices.length);
     return choices[randomIndex];
 }
 
+// if the player won the round this returns true boolean
 function hasPlayerWonTheRound(player, computer) {
     return (
         (player === "Rock" && computer === "Scissors") || (player === "Scissors" && computer === "Paper") || (player === "Paper" && computer === "Rock")
     );
 }
 
+// declaring the empty variables then as 0 
 let playerScore = 0;
 let computerScore = 0;
 
+// this function gets the results of the roud which includes tallying each point
 function getRoundResults(userChoice) {
     const computerResults = getRandomComputerResult(); 
  
@@ -34,9 +37,18 @@ function getRoundResults(userChoice) {
 
 
 function showResults(userChoice) {
+    
+
     roundResultsMsg.textContent = getRoundResults(userChoice);
     playerScoreSpan.textContent = playerScore;
     computerScoreSpan.textContent = computerScore;
+
+    if(playerScore === 3 || computerScore === 3) {
+    winnerMsgElement.innerText = `${playerScore === 3 ? "Player" : "Computer"} has won the game!`;
+
+         setTimeout(resetGame, 1500);
+    
+};
 }
 
 
@@ -56,25 +68,20 @@ scissorsBtn.addEventListener("click", function(){
 });
 
 const winnerMsgElement = document.getElementById("winner-msg");
-const resetGameBtn = document.getElementById("reset-game-btn");
 
-if(playerScore === 3 || computerScore === 3) {
-    winnerMsgElement.innerText = `${playerScore === 3 ? "Player" : "Computer"} has won the game!`;
 
-    resetGameBtn.style.display = "block";
-    
-};
-resetGameBtn.addEventListener("click", resetGame());
+
 
 function resetGame() {
     playerScore = 0;
     computerScore = 0;
+    roundResultsMsg.textContent += " | Game Over! Starting a new game...";
+
     computerScoreSpan.innerText = computerScore;
     playerScoreSpan.innerText = playerScore;
 
-    resetGameBtn.style.display = "none";
-    winnerMsgElement.innerText = "";
     
+
 }
 
 document.querySelectorAll("img").forEach(img => {
