@@ -49,12 +49,12 @@ function showResults(userChoice) {
     playerScoreSpan.textContent = playerScore;
     computerScoreSpan.textContent = computerScore;
 
-    if(playerScore === 3 || computerScore === 3) {
-    roundResultsMsg.innerText = `${playerScore === 3 ? "Player" : "Computer"} has won the game!`;
+    if(playerScore === 4 || computerScore === 4) {
+    roundResultsMsg.innerText = `${playerScore === 4 ? "Player" : "Computer"} has won the game!`;
 
-       setTimeout(resetGame, 1500);
+       setTimeout(resetGame, 800);
     
-};
+}; 
 }
 
 
@@ -85,6 +85,7 @@ function resetGame() {
     roundResultsMsg.textContent = "Game Over! Starting a new game...";
     computerScoreSpan.innerText = computerScore;
     playerScoreSpan.innerText = playerScore;
+    
 
 
 }

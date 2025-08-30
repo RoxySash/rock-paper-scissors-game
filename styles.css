@@ -106,9 +106,14 @@ body {
   --bg:  #00ff80;
   --fonts: 2rem;
   --font-color: #d64161;
+  --font-b: 2.5rem;
  
 }
 
 .attribution {
   color: antiquewhite;
+}
+
+.text-result {
+  font-size: var(--font-b);
 }
