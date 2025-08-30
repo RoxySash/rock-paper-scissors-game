@@ -28,7 +28,7 @@ I also created custom pixel art for the Rock, Paper, and Scissors using [Piskel]
 1. Choose Rock, Paper, or Scissors.
 2. The computer will make a random choice.
 3. First to reach **4 points** wins.
-4. Click again to play a new round!
+4. New game automatically starts after reaching 4 points
 
 
 ## Tech Stack
